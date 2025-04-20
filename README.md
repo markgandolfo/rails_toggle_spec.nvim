@@ -18,7 +18,7 @@ A simple Neovim plugin to quickly navigate between Rails implementation files an
 use {
   'markgandolfo/rails_toggle_spec.nvim',
   config = function()
-    require('rails_toggle_spec.nvim').setup()
+    require('rails_toggle_spec').setup()
   end
 }
 ```
@@ -29,7 +29,7 @@ use {
 {
   'markgandolfo/rails_toggle_spec.nvim',
   config = function()
-    require('rails_toggle_spec.nvim').setup()
+    require('rails_toggle_spec').setup()
   end
 }
 ```
@@ -43,7 +43,7 @@ Plug 'markgandolfo/rails_toggle_spec.nvim'
 Then add to your `init.vim` or `init.lua`:
 
 ```lua
-lua require('rails_toggle_spec.nvim').setup()
+lua require('rails_toggle_spec').setup()
 ```
 
 ## Usage
@@ -61,7 +61,7 @@ You can also use the command:
 You can customize the plugin by passing options to the setup function:
 
 ```lua
-require('rails_toggle_spec.nvim').setup({
+require('rails_toggle_spec').setup({
   create_mappings = false -- Disable default keymappings
 })
 ```
