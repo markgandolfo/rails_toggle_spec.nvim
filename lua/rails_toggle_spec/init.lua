@@ -84,6 +84,14 @@ local function implementation_to_spec(impl_path)
 	end
 end
 
+-- Helper function to convert snake_case to CamelCase
+local function to_camel_case(str)
+	-- Convert string like "hello_world_controller" to "HelloWorldController"
+	return (str:gsub("_(%l)", function(match)
+		return match:upper()
+	end):gsub("^%l", string.upper))
+end
+
 -- Try to find the corresponding file
 function M.find_corresponding_file()
 	local current_file = vim.fn.expand("%:p")
@@ -173,10 +181,11 @@ function M.find_corresponding_file()
 
 					-- Add a basic spec template
 					local file_basename = vim.fn.fnamemodify(relative_path, ":t:r")
+					local class_name = to_camel_case(file_basename)
 					local spec_template = {
 						"require 'rails_helper'",
 						"",
-						"RSpec.describe " .. file_basename:gsub("^%l", string.upper) .. " do",
+						"RSpec.describe " .. class_name .. " do",
 						"  # Add your specs here",
 						"end",
 						"",
